@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+
+<title>Mr.Mood</title>
+
+<!-- import css here -->
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto:900' rel='stylesheet' type='text/css'>
+
+
+<!-- import js here -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+</head>
+
+<body>
+
+<!-- Samsung Galaxy Note pixel dimensions -->
+<div id="appWrapper">
+	<img src="head.png">
+	
+	<div class="mood">
+
+		<button><img src="happy.png"></button>
+		<button><img src="clam.png"></button>
+		<button><img src="sad.png"></button>
+	</div>
+
+	<div class="form">
+		 <label>Mood</label>
+	    <select id="mydropdown">
+			<option>Happy</option>
+			<option>Clam</option>
+			<option>Sad</option>		
+		</select>
+
+		<label>Date</label>
+	    <input type="date" id="Inputdate" class="form-control" placeholder="dd/mm/yy">
+	    <label>Note:</label>
+	    <textarea class="form-control" id="Inputnote"rows="5" placeholder="take note:"></textarea>
+	  </div>
+
+	   <button type="submit" class="btn-save"> <img src="save.png"></button>
+
+		   <div id="result"></div>
+		   <div id="note"></div>
+
+
+
+
+
+<!-- call your js here -->
+	<script type="text/javascript">
+
+	$().ready(function(){
+		$("button").click(function(){
+			(localStorage.buttonClick){
+				localStorage.moodClick = $("#mydropdown").val();
+				localStorage.dateClick = $("#Inputdate").val();
+				localStorage.noteClick = $("#Inputnote").val();
+				document.getElementById("result").innerHTML = "You are " + localStorage.moodClick + " on " + localStorage.dateClick;
+				document.getElementById("note").innerHTML = localStorage.noteClick;
+			}
+		});
+			
+		})
+
+	</script>
+
+</body>
+</html>
